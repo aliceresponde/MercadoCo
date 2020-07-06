@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/detail_images_pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_anchorGravity="bottom"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <LinearLayout
+            android:id="@+id/detail_pager_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/colorTextPimary"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_pager_indicator"
+            tools:text="Alicia en el pais de las maravillas" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/detail_title"
+            app:layout_constraintStart_toStartOf="@+id/detail_title"
+            app:layout_constraintTop_toBottomOf="@+id/detail_title"
+            tools:text="$ 17.900" />
+
+        <TextView
+            android:id="@+id/detail_description_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:text="@string/description"
+            android:textColor="@color/colorTextPimary"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/detail_description_body"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ellipsize="marquee"
+            android:padding="10dp"
+            android:textSize="20sp"
+            tools:text="En ¡Huju! Libros y Música podrás encontrar productos nuevos y de segunda mano a precios increíbles, irresistibles.\n\nTodos nuestros productos son originales. \n\nSomos  MercadoLider, es decir, uno de los mejores vendedores de MercadortrterterterterterterterbtisdsfiusdhfsfiushfjshuihsLibreeeerererererer. Tenemos excelentes calificaciones.\n\nInventario Disponible. Despacho Inmediato. No tienes que esperar.\n\nPara mayor tranquilidad consulta los comentarios de nuestros clientes en:\n\nhttps://perfil.mercadolibre.com.co/hujulibros\n\nTodo nuestro catálogo en el siguiente enlace: \n\nhttps://eshops.mercadolibre.com.co/hujulibros"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_description_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

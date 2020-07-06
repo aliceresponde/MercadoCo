@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MercadoCo</string>
+    <string name="description">Description</string>
+    <string name="no_data_found">No data found \n Please check the searched word</string>
+    <string name="welcome">Welcome</string>
+    <string name="empty_data">Empty data</string>
 </resources>
