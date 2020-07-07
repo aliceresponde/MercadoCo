@@ -1,4 +1,4 @@
-package com.aliceresponde.mercadoco.remote.response
+package com.aliceresponde.mercadoco.data.remote.response
 
 data class ItemResponse(
     val id: String,

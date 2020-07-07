@@ -1,4 +1,4 @@
-package com.aliceresponde.mercadoco.remote
+package com.aliceresponde.mercadoco.data.remote
 
 import android.content.Context
 import android.net.ConnectivityManager

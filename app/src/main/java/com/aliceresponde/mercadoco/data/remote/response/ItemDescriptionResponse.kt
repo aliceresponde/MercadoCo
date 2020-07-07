@@ -1,4 +1,4 @@
-package com.aliceresponde.mercadoco.remote.response
+package com.aliceresponde.mercadoco.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 

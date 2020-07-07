@@ -2,18 +2,19 @@ package com.aliceresponde.mercadoco.ui.search
 
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.aliceresponde.mercadoco.domain.SearchUseCase
-import com.aliceresponde.mercadoco.remote.NoInternetException
+import com.aliceresponde.mercadoco.data.remote.NoInternetException
+import com.aliceresponde.mercadoco.usecase.SearchItemUC
 import com.aliceresponde.mercadoco.ui.model.UiItem
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class SearchViewModel(private val useCase: SearchUseCase) : ViewModel() {
+class SearchViewModel @ViewModelInject constructor(private val useCase: SearchItemUC) : ViewModel() {
     private val _loadingVisibility = MutableLiveData<Int>(GONE)
     val loadingVisibility: LiveData<Int> get() = _loadingVisibility
 
@@ -44,7 +45,7 @@ class SearchViewModel(private val useCase: SearchUseCase) : ViewModel() {
                 try {
                     hideViews()
                     _loadingVisibility.postValue(VISIBLE)
-                    val data = useCase.searchItem(input)
+                    val data = useCase(input)
                     _items.postValue(data)
                     updateVisibility(data)
                 } catch (e: NoInternetException) {

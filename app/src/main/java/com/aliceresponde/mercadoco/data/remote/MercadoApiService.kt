@@ -1,8 +1,8 @@
-package com.aliceresponde.mercadoco.remote
+package com.aliceresponde.mercadoco.data.remote
 
-import com.aliceresponde.mercadoco.remote.response.ItemDescriptionResponse
-import com.aliceresponde.mercadoco.remote.response.ItemResponse
-import com.aliceresponde.mercadoco.remote.response.ItemsResponse
+import com.aliceresponde.mercadoco.data.remote.response.ItemDescriptionResponse
+import com.aliceresponde.mercadoco.data.remote.response.ItemResponse
+import com.aliceresponde.mercadoco.data.remote.response.ItemsResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -13,12 +13,12 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 
-interface MercadoApi {
+interface MercadoApiService {
     companion object {
         private const val BASE_URL = "https://api.mercadolibre.com/"
         private const val CO = "MCO"
 
-        operator fun invoke(interceptor: NetworkConnectionInterceptor): MercadoApi {
+        operator fun invoke(interceptor: NetworkConnectionInterceptor): MercadoApiService {
             val logInterceptor = HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             }
@@ -33,7 +33,7 @@ interface MercadoApi {
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(MercadoApi::class.java)
+                .create(MercadoApiService::class.java)
         }
     }
 
