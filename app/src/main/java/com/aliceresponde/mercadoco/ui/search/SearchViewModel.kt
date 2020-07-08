@@ -8,13 +8,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aliceresponde.mercadoco.data.remote.NoInternetException
-import com.aliceresponde.mercadoco.usecase.SearchItemUC
 import com.aliceresponde.mercadoco.ui.model.UiItem
+import com.aliceresponde.mercadoco.usecase.SearchItemUseCase
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class SearchViewModel @ViewModelInject constructor(private val useCase: SearchItemUC) : ViewModel() {
+class SearchViewModel @ViewModelInject constructor(private val useCase: SearchItemUseCase) :
+    ViewModel() {
     private val _loadingVisibility = MutableLiveData<Int>(GONE)
     val loadingVisibility: LiveData<Int> get() = _loadingVisibility
 

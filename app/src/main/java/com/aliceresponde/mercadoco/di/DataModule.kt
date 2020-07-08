@@ -1,26 +1,25 @@
 package com.aliceresponde.mercadoco.di
 
-import android.app.Application
 import com.aliceresponde.mercadoco.data.remote.MercadoApiService
-import com.aliceresponde.mercadoco.data.remote.NetworkConnectionInterceptor
+import com.aliceresponde.mercadoco.data.repository.ItemsRepository
+import com.aliceresponde.mercadoco.data.repository.ItemsRepositoryImp
+import com.aliceresponde.mercadoco.data.repository.RemoteDataSource
+import com.aliceresponde.mercadoco.data.repository.RetrofitDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import okhttp3.Interceptor
-import javax.inject.Singleton
+
 
 @Module
 @InstallIn(ApplicationComponent::class)
 class DataModule {
 
     @Provides
-    @Singleton
-    fun provideNetworkConnectionInterceptor(app: Application): Interceptor =
-        NetworkConnectionInterceptor(app)
+    fun providesItemsRepository(remoteDataSource: RemoteDataSource): ItemsRepository =
+        ItemsRepositoryImp(remoteDataSource)
 
     @Provides
-    @Singleton
-    fun provideMercadoApiService(interceptor: NetworkConnectionInterceptor): MercadoApiService =
-        MercadoApiService.invoke(interceptor)
+    fun providesRemoteDataSource(service: MercadoApiService): RemoteDataSource =
+        RetrofitDataSource(service)
 }

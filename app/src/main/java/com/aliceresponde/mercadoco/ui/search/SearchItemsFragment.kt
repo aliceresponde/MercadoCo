@@ -8,11 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.aliceresponde.mercadoco.R
 import com.aliceresponde.mercadoco.databinding.FragmentSearchItemsBinding
-import com.aliceresponde.mercadoco.ui.MercadoApp
 import com.aliceresponde.mercadoco.ui.hideKeyboard
 import com.aliceresponde.mercadoco.ui.model.UiItem
 import com.mancj.materialsearchbar.MaterialSearchBar
@@ -21,8 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SearchItemsFragment : Fragment(), MaterialSearchBar.OnSearchActionListener {
     lateinit var binding: FragmentSearchItemsBinding
-//    lateinit var factory: SearchViewModelFactory
-//    lateinit var viewModel: SearchViewModel
+
     private val viewModel: SearchViewModel by viewModels()
     private val adapter: ItemsAdapter by lazy { ItemsAdapter { goToDetail(it) } }
 
@@ -34,12 +31,6 @@ class SearchItemsFragment : Fragment(), MaterialSearchBar.OnSearchActionListener
         super.onCreateView(inflater, container, savedInstanceState)
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_search_items, container, false)
-        val app = activity?.application as MercadoApp?
-
-        app?.let {
-//            factory = SearchViewModelFactory(it.provideSearchUseCase())
-//            viewModel = ViewModelProvider(this, factory).get(SearchViewModel::class.java)
-        }
 
         binding.apply {
             lifecycleOwner = this@SearchItemsFragment

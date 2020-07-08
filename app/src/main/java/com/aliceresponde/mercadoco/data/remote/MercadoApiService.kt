@@ -3,6 +3,7 @@ package com.aliceresponde.mercadoco.data.remote
 import com.aliceresponde.mercadoco.data.remote.response.ItemDescriptionResponse
 import com.aliceresponde.mercadoco.data.remote.response.ItemResponse
 import com.aliceresponde.mercadoco.data.remote.response.ItemsResponse
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -18,7 +19,7 @@ interface MercadoApiService {
         private const val BASE_URL = "https://api.mercadolibre.com/"
         private const val CO = "MCO"
 
-        operator fun invoke(interceptor: NetworkConnectionInterceptor): MercadoApiService {
+        operator fun invoke(interceptor: Interceptor): MercadoApiService {
             val logInterceptor = HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             }
@@ -39,7 +40,7 @@ interface MercadoApiService {
 
     // https://api.mercadolibre.com//sites/MLC/search?q=alicia
     @GET("sites/$CO/search")
-    suspend fun findItemBy(@Query("q") keyWords: String): Response<ItemsResponse>
+    suspend fun searchItemsBy(@Query("q") keyWords: String): Response<ItemsResponse>
 
     // https://api.mercadolibre.com/items/MLC489435759
     @GET("items/{item_id}")
