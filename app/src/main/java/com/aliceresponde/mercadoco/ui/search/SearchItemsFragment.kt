@@ -19,7 +19,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SearchItemsFragment : Fragment(), MaterialSearchBar.OnSearchActionListener {
     lateinit var binding: FragmentSearchItemsBinding
-
     private val viewModel: SearchViewModel by viewModels()
     private val adapter: ItemsAdapter by lazy { ItemsAdapter { goToDetail(it) } }
 

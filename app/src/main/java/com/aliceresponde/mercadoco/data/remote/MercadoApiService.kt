@@ -1,7 +1,7 @@
 package com.aliceresponde.mercadoco.data.remote
 
 import com.aliceresponde.mercadoco.data.remote.response.ItemDescriptionResponse
-import com.aliceresponde.mercadoco.data.remote.response.ItemResponse
+import com.aliceresponde.mercadoco.data.remote.response.ItemDetailResponse
 import com.aliceresponde.mercadoco.data.remote.response.ItemsResponse
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -44,7 +44,7 @@ interface MercadoApiService {
 
     // https://api.mercadolibre.com/items/MLC489435759
     @GET("items/{item_id}")
-    suspend fun getGetItem(@Path("{item_id}") id: String): Response<ItemResponse>
+    suspend fun getItemDetail(@Path("item_id") id: String): Response<ItemDetailResponse>
 
     // https://api.mercadolibre.com/items/MCO545313621/description
     @GET("items/{item_id}/description")

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.aliceresponde.mercadoco.ui.detail.DetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,6 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_anchorGravity="bottom"
+            android:padding="10dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,13 +30,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.45" />
+            app:layout_constraintGuide_percent="0.3" />
 
-        <LinearLayout
+        <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/detail_pager_indicator"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="10dp"
+            app:ci_width="5dp"
+            app:ci_height="5dp"
+            app:ci_gravity="center_horizontal"
+            app:ci_drawable="@drawable/selected_indicator"
+            app:ci_drawable_unselected="@drawable/unselected_indicator"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +51,9 @@
             android:id="@+id/detail_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@{viewModel.uiItem.title}"
             android:textColor="@color/colorTextPimary"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,10 +62,10 @@
             tools:text="Alicia en el pais de las maravillas" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/detail_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:text="@{viewModel.uiItem.price}"
             android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/detail_title"
@@ -68,13 +78,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:padding="10dp"
             android:text="@string/description"
             android:textColor="@color/colorTextPimary"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintStart_toStartOf="@+id/detail_price"
+            app:layout_constraintTop_toBottomOf="@+id/detail_price" />
 
         <TextView
             android:id="@+id/detail_description_body"
@@ -83,11 +92,13 @@
             android:ellipsize="marquee"
             android:padding="10dp"
             android:textSize="20sp"
-            tools:text="En ¡Huju! Libros y Música podrás encontrar productos nuevos y de segunda mano a precios increíbles, irresistibles.\n\nTodos nuestros productos son originales. \n\nSomos  MercadoLider, es decir, uno de los mejores vendedores de MercadortrterterterterterterterbtisdsfiusdhfsfiushfjshuihsLibreeeerererererer. Tenemos excelentes calificaciones.\n\nInventario Disponible. Despacho Inmediato. No tienes que esperar.\n\nPara mayor tranquilidad consulta los comentarios de nuestros clientes en:\n\nhttps://perfil.mercadolibre.com.co/hujulibros\n\nTodo nuestro catálogo en el siguiente enlace: \n\nhttps://eshops.mercadolibre.com.co/hujulibros"
+            android:text="@{viewModel.description}"
+            android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_description_title" />
+            app:layout_constraintTop_toBottomOf="@+id/detail_description_title"
+            tools:text="En ¡Huju! Libros y Música podrás encontrar productos nuevos y de segunda mano a precios increíbles, irresistibles.\n\nTodos nuestros productos son originales. \n\nSomos  MercadoLider, es decir, uno de los mejores vendedores de MercadortrterterterterterterterbtisdsfiusdhfsfiushfjshuihsLibreeeerererererer. Tenemos excelentes calificaciones.\n\nInventario Disponible. Despacho Inmediato. No tienes que esperar.\n\nPara mayor tranquilidad consulta los comentarios de nuestros clientes en:\n\nhttps://perfil.mercadolibre.com.co/hujulibros\n\nTodo nuestro catálogo en el siguiente enlace: \n\nhttps://eshops.mercadolibre.com.co/hujulibros" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
