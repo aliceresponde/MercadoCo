@@ -7,7 +7,7 @@ class ItemsRepositoryImp(
 ) : ItemsRepository {
 
     override suspend fun searchItem(input: String): List<Item> {
-        val response = remoteDataSource.searchItem(input)
+        val response = remoteDataSource.searchItems(input)
         val result = response.body()?.results
         result?.let {
             return it

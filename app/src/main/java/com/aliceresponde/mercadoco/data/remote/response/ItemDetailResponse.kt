@@ -1,6 +1,6 @@
 package com.aliceresponde.mercadoco.data.remote.response
 
-data class ItemResponse(
+data class ItemDetailResponse(
     val id: String,
     val title: String,
     val pictures: List<Picture>

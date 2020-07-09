@@ -14,7 +14,7 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class SearchViewModel @ViewModelInject constructor(private val useCase: SearchItemUseCase) :
+class SearchViewModel @ViewModelInject constructor(private val searchItem: SearchItemUseCase) :
     ViewModel() {
     private val _loadingVisibility = MutableLiveData<Int>(GONE)
     val loadingVisibility: LiveData<Int> get() = _loadingVisibility
@@ -46,7 +46,7 @@ class SearchViewModel @ViewModelInject constructor(private val useCase: SearchIt
                 try {
                     hideViews()
                     _loadingVisibility.postValue(VISIBLE)
-                    val data = useCase(input)
+                    val data = searchItem(input)
                     _items.postValue(data)
                     updateVisibility(data)
                 } catch (e: NoInternetException) {
