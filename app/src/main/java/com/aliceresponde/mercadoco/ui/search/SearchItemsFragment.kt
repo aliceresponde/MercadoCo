@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,6 +14,7 @@ import com.aliceresponde.mercadoco.R
 import com.aliceresponde.mercadoco.databinding.FragmentSearchItemsBinding
 import com.aliceresponde.mercadoco.ui.hideKeyboard
 import com.aliceresponde.mercadoco.ui.model.UiItem
+import com.aliceresponde.mercadoco.ui.toast
 import com.mancj.materialsearchbar.MaterialSearchBar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -53,8 +55,9 @@ class SearchItemsFragment : Fragment(), MaterialSearchBar.OnSearchActionListener
 
     override fun onResume() {
         super.onResume()
-        viewModel.searchItems("televisor")
+        toast(getString(R.string.search_message))
     }
+
 
     private fun goToDetail(item: UiItem) {
         val action = SearchItemsFragmentDirections.actionSearchItemsFragmentToDetailFragment(item)

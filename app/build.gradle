@@ -48,17 +48,18 @@ kapt {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
     implementation 'androidx.core:core-ktx:1.3.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
 
-    implementation 'me.relex:circleindicator:2.1.4'
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
     //viewPager2
     implementation "androidx.viewpager2:viewpager2:$viewPager2Version"
-    implementation 'com.google.android.material:material:1.1.0-alpha08'
+    implementation 'com.google.android.material:material:1.3.0-alpha01'
+    implementation 'me.relex:circleindicator:2.1.4'
 
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
@@ -93,6 +94,7 @@ dependencies {
     // Gson
     implementation "com.google.code.gson:gson:$gsonVersion"
 
+    // hilt
     implementation 'com.google.dagger:hilt-android:2.28.1-alpha'
     kapt 'com.google.dagger:hilt-android-compiler:2.28.1-alpha'
 
@@ -100,15 +102,7 @@ dependencies {
     kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha01'
 
     // ------------------- Testing -------------------------------------
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-//    // For instrumentation tests
-//    androidTestImplementation  'com.google.dagger:hilt-android-testing:<VERSION>'
-//    androidTestAnnotationProcessor 'com.google.dagger:hilt-android-compiler:<VERSION>'
-//
-//    // For local unit tests
-//    testImplementation 'com.google.dagger:hilt-android-testing:<VERSION>'
-//    testAnnotationProcessor 'com.google.dagger:hilt-android-compiler:<VERSION>'
 }

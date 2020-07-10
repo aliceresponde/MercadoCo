@@ -20,18 +20,20 @@
             style="@style/MaterialSearchBarLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="true"
             android:layout_margin="10dp"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:mt_maxSuggestionsCount="0"
-            app:mt_speechMode="false" />
+            app:mt_maxSuggestionsCount="5"
+             />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/items_recycler"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
+            style="@style/MaterialSearchBarLight"
             android:foregroundGravity="center_horizontal"
             android:visibility="@{viewModel.recyclerVisibility}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
