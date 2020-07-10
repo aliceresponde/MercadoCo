@@ -30,7 +30,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/items_recycler"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:foregroundGravity="center_horizontal"
             android:visibility="@{viewModel.recyclerVisibility}"
@@ -39,8 +39,10 @@
             app:layout_constraintEnd_toEndOf="@+id/searchBar"
             app:layout_constraintStart_toStartOf="@+id/searchBar"
             app:layout_constraintTop_toBottomOf="@+id/searchBar"
-            app:spanCount="2"
+            android:orientation="horizontal"
+            app:spanCount="1"
             tools:itemCount="50"
+            android:layout_margin="8dp"
             tools:listitem="@layout/item_row" />
 
         <ProgressBar

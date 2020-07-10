@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.aliceresponde.mercadoco.ui.detail.DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/detail_images_pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/detail_pager_indicator"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/detail_title" />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/detail_pager_indicator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal"
+            app:ci_drawable="@drawable/selected_indicator"
+            app:ci_drawable_unselected="@drawable/unselected_indicator"
+            app:ci_gravity="center_horizontal"
+            app:ci_height="5dp"
+            app:ci_width="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_description_body"
+            app:layout_constraintEnd_toEndOf="@+id/detail_images_pager"
+            app:layout_constraintStart_toStartOf="@id/detail_images_pager"
+            app:layout_constraintTop_toTopOf="@+id/detail_title"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="left"
+            android:text="@{viewModel.uiItem.title}"
+            android:textColor="@color/colorTextPimary"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Alicia en el pais de las maravillas" />
+
+        <TextView
+            android:id="@+id/detail_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@{viewModel.uiItem.price}"
+            android:textSize="26sp"
+
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_description_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/detail_description_title"
+            tools:text="$ 17.900" />
+
+        <TextView
+            android:id="@+id/detail_description_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/description"
+            android:textColor="@color/colorTextPimary"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/detail_title" />
+
+        <TextView
+            android:id="@+id/detail_description_body"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:ellipsize="marquee"
+            android:padding="10dp"
+            android:scrollbars="vertical"
+            android:text="@{viewModel.description}"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/detail_price"
+            app:layout_constraintStart_toStartOf="@+id/detail_description_title"
+            app:layout_constraintTop_toBottomOf="@id/detail_description_title"
+            tools:text="En ¡Huju! Libros y Música podrás encontrar productos nuevos y de segunda mano a precios increíbles, irresistibles.\n\nTodos nuestros productos son originales. \n\nSomos  MercadoLider, es decir, uno de los mejores vendedores de MercadortrterterterterterterterbtisdsfiusdhfsfiushfjshuihsLibreeeerererererer. Tenemos excelentes calificaciones.\n\nInventario Disponible. Despacho Inmediato. No tienes que esperar.\n\nPara mayor tranquilidad consulta los comentarios de nuestros clientes en:\n\nhttps://perfil.mercadolibre.com.co/hujulibros\n\nTodo nuestro catálogo en el siguiente enlace: \n\nhttps://eshops.mercadolibre.com.co/hujulibros" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
